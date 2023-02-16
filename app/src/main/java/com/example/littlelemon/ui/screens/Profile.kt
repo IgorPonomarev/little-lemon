@@ -4,6 +4,8 @@ import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -38,7 +40,9 @@ fun Profile(navController: NavController, sharedPreferences: SharedPreferences) 
         Toast.makeText(context, "Logged out", Toast.LENGTH_SHORT).show()
         navController.navigate(com.example.littlelemon.ui.navigation.Onboarding.route)
     }
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .verticalScroll(rememberScrollState())) {
         TopBarLogo()
         Text(
             text = "Personal information",

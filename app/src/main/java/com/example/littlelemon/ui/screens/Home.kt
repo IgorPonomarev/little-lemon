@@ -1,9 +1,7 @@
 package com.example.littlelemon.ui.screens
 
 import android.widget.Toast
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
@@ -29,8 +27,10 @@ import com.example.littlelemon.ui.theme.Typography
 
 //@Preview
 @Composable
-fun Home( navController: NavController) {
-    Column(modifier = Modifier.fillMaxSize()) {
+fun Home(navController: NavController) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .verticalScroll(rememberScrollState())) {
         TopBarLogo()
         Row(
             modifier = Modifier
@@ -44,7 +44,7 @@ fun Home( navController: NavController) {
                 modifier = Modifier
                     .padding(top = 8.dp, bottom = 8.dp, end = 16.dp)
                     .size(48.dp)
-                    .clickable{
+                    .clickable {
                         navController.navigate(Profile.route)
                     }
 
@@ -52,7 +52,9 @@ fun Home( navController: NavController) {
                 Image(
                     painter = painterResource(id = R.drawable.baseline_account_circle_24),
                     colorFilter = ColorFilter.tint(Color.LightGray),
-                    modifier = Modifier.padding(8.dp).size(32.dp),
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .size(32.dp),
                     contentScale = ContentScale.FillBounds,
                     contentDescription = stringResource(R.string.cd_little_lemon_logo)
                 )
