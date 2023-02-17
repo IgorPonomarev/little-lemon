@@ -47,6 +47,10 @@ fun Home(navController: NavController, menuItems: List<MenuItem>) {
     var searchText by rememberSaveable(stateSaver = TextFieldValue.Saver) {
         mutableStateOf(TextFieldValue("", TextRange(0, 7)))
     }
+    var menuItemsToDisplay by rememberSaveable() {
+        mutableStateOf(listOf<MenuItem>())
+    }
+    menuItemsToDisplay = menuItems
     val categories: Set<String> = menuItems.map { it.category }.toSet()
     Scaffold(
         topBar = {
@@ -109,7 +113,12 @@ fun Home(navController: NavController, menuItems: List<MenuItem>) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 16.dp),
-                        leadingIcon = { Icon( imageVector = Icons.Default.Search, contentDescription = "") }
+                        leadingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = ""
+                            )
+                        }
                     )
                 }
                 Column(
@@ -130,18 +139,31 @@ fun Home(navController: NavController, menuItems: List<MenuItem>) {
                             .padding(top = 8.dp),
                         horizontalArrangement = Arrangement.Start
                     ) {
-                        items(categories.toList()) {
+                        items(categories.toList()) {category ->
                             Chip(
-                                onClick = { /*TODO*/ },
+                                onClick = {
+                                    menuItemsToDisplay = menuItems.filter {
+                                        it.category.contains(
+                                            category,
+                                            ignoreCase = true
+                                        )
+                                    }
+                                    searchText = TextFieldValue("", TextRange(0, 7))
+                                },
                                 modifier = Modifier.padding(end = 8.dp)
                             ) {
-                                Text(text = it, fontWeight = FontWeight.ExtraBold)
+                                Text(text = category, fontWeight = FontWeight.ExtraBold)
                             }
                         }
                     }
                 }
                 LazyColumn() {
-                    itemsIndexed(menuItems.filter { it.title.contains(searchText.text, ignoreCase = true) }) { index, it ->
+                    itemsIndexed(menuItemsToDisplay.filter {
+                        it.title.contains(
+                            searchText.text,
+                            ignoreCase = true
+                        )
+                    }) { index, it ->
                         Divider(
                             color = Color.LightGray, thickness = 1.dp,
                             modifier = Modifier.padding(horizontal = 16.dp)
