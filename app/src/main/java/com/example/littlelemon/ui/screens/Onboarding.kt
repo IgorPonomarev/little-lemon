@@ -123,7 +123,7 @@ fun Onboarding(navController: NavController, sharedPreferences: SharedPreference
                     .padding(start = 16.dp, end = 16.dp, top = 32.dp)
                     .fillMaxWidth()
             ) {
-                Text(text = "Register", style = Typography.button, color = Color.Black)
+                Text(text = "Register", style = Typography.button, color = Color.LightGray)
             }
         }
     }

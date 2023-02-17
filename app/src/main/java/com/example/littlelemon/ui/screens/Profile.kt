@@ -6,9 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,10 +14,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.edit
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.littlelemon.R
+import com.example.littlelemon.ui.composables.TopAppBarProfileButton
 import com.example.littlelemon.ui.composables.TopBarLogo
 import com.example.littlelemon.ui.theme.Typography
 
@@ -43,6 +44,7 @@ fun Profile(navController: NavController, sharedPreferences: SharedPreferences) 
     Column(modifier = Modifier
         .fillMaxSize()
         .verticalScroll(rememberScrollState())) {
+        ProfileTopAppBar("Profile")
         TopBarLogo()
         Text(
             text = "Personal information",
@@ -89,8 +91,30 @@ fun Profile(navController: NavController, sharedPreferences: SharedPreferences) 
                     .padding(start = 16.dp, end = 16.dp, top = 32.dp)
                     .fillMaxWidth()
             ) {
-                Text(text = "Log Out", style = Typography.button, color = Color.Black)
+                Text(text = "Log Out", style = Typography.button, color = Color.LightGray)
             }
         }
     }
 }
+
+@Composable
+fun ProfileTopAppBar(
+    title: String = "Little Lemon"
+) {
+
+    TopAppBar(
+        title = {
+            Text(text = title)
+        },
+        backgroundColor = MaterialTheme.colors.primary,
+        contentColor = Color.LightGray,
+        elevation = 10.dp,
+    )
+}
+
+
+//@Preview
+//@Composable
+//fun PreviewProfile() {
+//    Profile(navController = rememberNavController())
+//}
