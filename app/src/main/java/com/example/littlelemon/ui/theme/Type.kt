@@ -4,6 +4,7 @@ import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.littlelemon.R
@@ -30,10 +31,21 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.markazi_text_regular)),
         fontWeight = FontWeight.Medium,
         fontSize = 64.sp
-    ), defaultFontFamily = FontFamily(Font(R.font.karla_regular)),
+    ),
+    h2 = TextStyle(
+        fontFamily = FontFamily(Font(R.font.markazi_text_regular)),
+        fontWeight = FontWeight.Normal,
+        fontSize = 40.sp
+    ),
+    defaultFontFamily = FontFamily(Font(R.font.karla_regular)),
     subtitle1 = TextStyle(
         fontFamily = FontFamily(Font(R.font.karla_regular)),
         fontWeight = FontWeight.Bold,
         fontSize = 18.sp
-    )
+    ),
+    body2 = TextStyle(
+        fontFamily = FontFamily(Font(R.font.karla_regular)),
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
 )

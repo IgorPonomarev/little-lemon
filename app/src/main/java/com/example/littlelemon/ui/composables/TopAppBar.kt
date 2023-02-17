@@ -27,7 +27,7 @@ fun CustomTopAppBar(
         backgroundColor = MaterialTheme.colors.primary,
         contentColor = Color.LightGray,
         elevation = 10.dp,
-        actions = { TopAppBarProfileButton(profileIconClick)}
+        actions = { TopAppBarProfileButton(profileIconClick)},
     )
 }
 
