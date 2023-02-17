@@ -25,7 +25,7 @@ fun CustomTopAppBar(
             Text(text = title)
         },
         backgroundColor = MaterialTheme.colors.primary,
-        contentColor = Color.LightGray,
+        contentColor = Color.White,
         elevation = 10.dp,
         actions = { TopAppBarProfileButton(profileIconClick)},
     )
@@ -41,7 +41,7 @@ fun TopAppBarProfileButton(
         Image(
             painter = painterResource(id = R.drawable.baseline_account_circle_24),
             contentDescription = "profile icon",
-            colorFilter = ColorFilter.tint(Color.LightGray),
+            colorFilter = ColorFilter.tint(Color.White),
             modifier = Modifier
                 .padding(8.dp)
                 .size(28.dp),
