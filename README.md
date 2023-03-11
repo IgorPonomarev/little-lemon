@@ -1,5 +1,5 @@
 # Little Lemon
-Little Lemon is a restaurant app, build with [Jetpack Compose](https://developer.android.com/jetpack/compose).
+Little Lemon is a restaurant app, built with [Jetpack Compose](https://developer.android.com/jetpack/compose).
 
 This app contains three screens: onboarding, home screen with menu and a profile screen
 
@@ -9,4 +9,4 @@ This app contains three screens: onboarding, home screen with menu and a profile
 
 ## Additional
 
-This app as a Capstone Project of [Meta Android Developer Certification](https://www.coursera.org/professional-certificates/meta-android-developer?).
+This app is a Capstone Project of [Meta Android Developer Certification](https://www.coursera.org/professional-certificates/meta-android-developer?).
